@@ -82,38 +82,7 @@ export default Vue.extend({
     return {
       timePositionUpdate: 0,
       weekdays: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
-      tasks: [
-        {
-          name: 'AuD',
-          start: 0,
-          end: 4,
-          completed: 0
-        },
-        {
-          name: 'Math',
-          start: 2,
-          end: 1,
-          completed: 0
-        },
-        {
-          name: 'Single',
-          start: 5,
-          end: -1,
-          completed: 0
-        },
-        {
-          name: 'Allday long rip',
-          start: 0,
-          end: 0,
-          completed: 0
-        },
-        {
-          name: 'Friday end-day',
-          start: 0,
-          end: 1,
-          completed: 0
-        }
-      ]
+      tasks: []
     }
   },
   head: {
@@ -130,7 +99,7 @@ export default Vue.extend({
     }
   },
   mounted () {
-    this.tasks = JSON.parse(localStorage.getItem('tasks') || '{}')
+    this.tasks = JSON.parse(localStorage.getItem('tasks') || '[{"name": "Task One","start": 0,"end": 5,"completed": 0},{"name": "Task Two","start": 3,"end": 1,"completed": 0},{"name": "Task three","start": 4,"end": -1,"completed": 0}]')
 
     setInterval(vue => vue.timePositionUpdate++, 10000, this)
   },
