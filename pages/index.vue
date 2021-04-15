@@ -95,7 +95,7 @@ export default Vue.extend({
       const day = (date.getDay() + 6) % 7
       const time = (date.getHours() / 24) + (date.getMinutes() / 60 / 24)
       const pos = day + time
-      return (pos + 2) / 9 + (this.timePositionUpdate * 0) - 0.02
+      return (pos + 2) / 9 + (this.timePositionUpdate * 0)
     }
   },
   mounted () {
