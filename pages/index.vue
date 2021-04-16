@@ -75,7 +75,7 @@
 <script>
 import Vue from 'vue'
 
-const dateZero = new Date('1/1/2021')
+const dateZero = new Date('4/1/2021')
 
 export default Vue.extend({
   data () {
