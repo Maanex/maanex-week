@@ -4,7 +4,7 @@
       <input ref="area" class="week-clipboard">
       <h1 class="mb-5 text-xl font-black text-yellow-300 font-mono flex items-center">
         <img src="/icon.png" alt="" class="h-4 w-4 mr-2">
-        mweek
+        mweek {{ getWeekId() }}
       </h1>
       <div class="w-full grid custom-grid-cols">
         <div class="px-2 py-1" />
@@ -75,7 +75,7 @@
 <script>
 import Vue from 'vue'
 
-const dateZero = new Date('3/1/2021')
+const dateZero = new Date('3 jan 2021')
 
 export default Vue.extend({
   data () {
@@ -153,8 +153,13 @@ export default Vue.extend({
       }
       this.saveTasks()
     },
+    today () {
+      const d = new Date()
+      const m = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+      return new Date(`${d.getDate()} ${m[d.getMonth()]} ${d.getFullYear()}`)
+    },
     getWeekId () {
-      const daysSince = Math.floor((new Date() - dateZero) / 86400000)
+      const daysSince = Math.floor((this.today() - dateZero) / 86400000)
       return ~~(daysSince / 7)
     },
     getTaskUrgency (task, old) {
